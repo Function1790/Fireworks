@@ -1,2 +1,2 @@
 # Fireworks
-with JS
+Looks pretty and pretty good
