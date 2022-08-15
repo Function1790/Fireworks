@@ -6,6 +6,7 @@ const FLAT = canvas.height
 const FIREWORKS_COUNT = 20
 const EXP_COUNT = 20
 const AFTERIMG_COUNT = 10
+const RADIUS = 2
 
 //Class
 class Vector {
@@ -97,10 +98,10 @@ class Particle {
         this.afterimg = []
     }
     draw() {
-        Circle(this.pos, 2, this.color)
+        Circle(this.pos, RADIUS, this.color)
         for (var i = 0; i < this.afterimg.length; i++) {
             let _color = this.color.alpha(i / this.AFTERIMG_COUNT - 1 + this.life)
-            Circle(this.afterimg[i], 1, _color)
+            Circle(this.afterimg[i], RADIUS, _color)
         }
     }
     move() {
@@ -183,7 +184,7 @@ createFireworks()
 let frame = 0
 function render() {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
-    if (RenderList.length < FIREWORKS_COUNT && frame % 20 == 0) {
+    if (RenderList.length < FIREWORKS_COUNT && frame % 40 == 0) {
         createFireworks()
     }
     for (var i = 0; i < RenderList.length; i++) {
